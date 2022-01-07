@@ -1,0 +1,7 @@
+1. make a db on the airtable ui
+
+2. instal the airtable-node package
+airtable-node
+
+3. make a function that fetches the data
+and returns it when called
