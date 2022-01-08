@@ -30,4 +30,6 @@ const fetchSingleProduct = async () => {
   }
 };
 
-fetchSingleProduct();
+window.addEventListener("load", () => {
+  fetchSingleProduct();
+});

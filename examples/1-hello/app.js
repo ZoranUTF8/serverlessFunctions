@@ -1,5 +1,3 @@
-
-
 const resultHeading = document.querySelector(".result");
 
 const fetchData = async () => {
@@ -15,5 +13,6 @@ const fetchData = async () => {
     console.log(error.response.status);
   }
 };
-
-fetchData();
+window.addEventListener("load", () => {
+  fetchData();
+});

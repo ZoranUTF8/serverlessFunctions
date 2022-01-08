@@ -24,4 +24,6 @@ const fetchData = async () => {
   }
 };
 
-fetchData();
+window.addEventListener("load", () => {
+  fetchData();
+});

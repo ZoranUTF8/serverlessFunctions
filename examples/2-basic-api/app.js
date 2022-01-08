@@ -1,39 +1,36 @@
-const result = document.querySelector('.result')
+const result = document.querySelector(".result");
 
 const fetchData = async () => {
-    try {
+  try {
+    const { data } = await axios.get("/api/2-basic-api");
 
+    const products = data
+      .map((item) => {
         const {
-            data
-        } = await axios.get("/api/2-basic-api");
+          image: { url: imageUrl },
+          id,
+          price,
+          name,
+        } = item;
 
-        const products = data.map((item) => {
-            const {
-                image: {
-                    url: imageUrl
-                },
-                id,
-                price,
-                name
-            } = item;
-
-            return `<article class="product">
+        return `<article class="product">
             <img src=${imageUrl} alt=${name}/>
             <div class="info">
             <h5>${name}</h5>
             <h5 class="price">${price}$</h5>
             </div>
-            </article>`
-        }).join("");
+            </article>`;
+      })
+      .join("");
 
+    result.innerHTML = products;
+  } catch (error) {
+    result.innerHTML = `THERE WAS AN ERROR`;
 
-        result.innerHTML = products;
-
-    } catch (error) {
-        result.innerHTML = `THERE WAS AN ERROR`
-
-        console.log(error.response.status);
-    }
+    console.log(error.response.status);
+  }
 };
 
-fetchData();
+window.addEventListener("load", () => {
+  fetchData();
+});
