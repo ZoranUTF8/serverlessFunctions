@@ -12,7 +12,7 @@ form.addEventListener("submit", (evt) => {
   if (city) {
     getWeatherData(city);
   } else {
-    window.alert("Pleas enter a valid city name.");
+    window.alert("Please enter a valid city name.");
   }
 });
 
@@ -32,7 +32,7 @@ async function getWeatherData(city) {
     <p>${description}</p>
     <p>Min temp : ${temp_min}&#8451;</p>
     <p>Max temp : ${temp_max}&#8451;</p>
-    <p>Feels like : ${feels_like}&#8451;</p>
+    <p>Feels like : ${feels_likes}&#8451;</p>
     </article>
     `;
   } catch (error) {
